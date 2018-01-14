@@ -4,7 +4,10 @@ import keys from '../keys';
 const { database, user, password } = keys;
 const sequelize = new Sequelize(database, user, password, {
   dialect: 'postgres',
-  underscored: true,
+
+  define: {
+    underscored: true,
+  },
 });
 const models = {
   User: sequelize.import('./user'),
